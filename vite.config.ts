@@ -5,6 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: '/apex-analytics---saas-admin-dashboard/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

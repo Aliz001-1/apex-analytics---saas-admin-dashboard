@@ -1,0 +1,94 @@
+{
+  "entities": {
+    "Subscription": {
+      "title": "Subscription",
+      "description": "Customer subscription record shown in recent subscriptions table",
+      "type": "object",
+      "properties": {
+        "customerName": {
+          "type": "string",
+          "description": "Name of the subscribing customer",
+          "maxLength": 100
+        },
+        "customerEmail": {
+          "type": "string",
+          "description": "Email address of customer",
+          "maxLength": 120
+        },
+        "plan": {
+          "type": "string",
+          "description": "Tier of subscription",
+          "enum": ["Basic", "Pro", "Premium", "Enterprise"]
+        },
+        "date": {
+          "type": "string",
+          "description": "Formatted date of subscription",
+          "maxLength": 30
+        },
+        "status": {
+          "type": "string",
+          "description": "Subscription current status",
+          "enum": ["Active", "Pending", "Canceled"]
+        },
+        "amount": {
+          "type": "number",
+          "description": "Monetary value of subscription"
+        },
+        "avatarUrl": {
+          "type": "string",
+          "description": "Customer avatar image URL",
+          "maxLength": 500
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "UID of admin who created record",
+          "maxLength": 128
+        }
+      },
+      "required": ["customerName", "plan", "date", "status", "amount"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Admin and team user profiles",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID",
+          "maxLength": 128
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of user",
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address",
+          "maxLength": 120
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "Avatar photo URL",
+          "maxLength": 500
+        },
+        "role": {
+          "type": "string",
+          "description": "Assigned access role",
+          "enum": ["Admin", "Manager", "Viewer"]
+        }
+      },
+      "required": ["uid", "email"]
+    }
+  },
+  "firestore": {
+    "/subscriptions/{subscriptionId}": {
+      "schema": "Subscription",
+      "description": "Customer subscriptions collection"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Authenticated user profile documents"
+    }
+  }
+}

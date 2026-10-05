@@ -1,0 +1,6 @@
+{
+  "name": "Apex Analytics - SaaS Admin Dashboard",
+  "description": "Enterprise-grade SaaS admin dashboard featuring real-time revenue analytics, subscriptions management, KPI metrics, dynamic filtering, and Firebase authentication.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
